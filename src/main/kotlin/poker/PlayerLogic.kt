@@ -58,13 +58,13 @@ class PlayerLogic {
     }
 
 
-    fun Player.hasPairInHand() = if (this.holeCards[0].rank == this.holeCards[1].rank) {
+    private fun Player.hasPairInHand() = if (this.holeCards[0].rank == this.holeCards[1].rank) {
         this.holeCards[0].rank
     } else {
         null
     }
 
-    fun Player.largerRank() = if (rankWeight(this.holeCards[0].rank) >= rankWeight(this.holeCards[1].rank)) {
+    private fun Player.largerRank() = if (rankWeight(this.holeCards[0].rank) >= rankWeight(this.holeCards[1].rank)) {
         this.holeCards[0].rank
     } else {
         this.holeCards[1].rank
@@ -79,13 +79,13 @@ class PlayerLogic {
 
         val chance = activePlayerMultiplicator(activePlayers) * bigBlindMultiplicator(stackInBigBlind) * pairMultiplicator(ourPlayer.hasPairInHand()) * rankMultiplicator(ourPlayer.largerRank())
 
-        return if (Random.nextInt(0, 100) < chance) { 1000 } else { 0 }
+        return if (Random.nextInt(0, 100) < chance) { 10000 } else { 0 }
     }
 
     fun showdown() {
     }
 
     fun version(): String {
-        return "John McPoker v2"
+        return "John McPoker v3"
     }
 }
