@@ -7,7 +7,7 @@ import poker.model.GameState
 
 fun main() {
     val server = AppServer(AppConfiguration(getPort()))
-    val player = Player()
+    val player = PlayerLogic()
 
     server.post("/", {
         val action = request.bodyParams["action"]
