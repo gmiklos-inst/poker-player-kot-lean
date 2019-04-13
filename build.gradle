@@ -1,13 +1,6 @@
-buildscript {
-  repositories {
-    mavenCentral()
-    maven {
-      url 'http://oss.sonatype.org/content/repositories/snapshots'
-    }
-  }
-  dependencies {
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:0.1-SNAPSHOT'
-  }
+plugins {
+  id 'com.github.johnrengelman.shadow' version '5.0.0'
+  id "org.jetbrains.kotlin.jvm" version "1.3.30"
 }
 
 apply plugin: 'kotlin'
@@ -15,20 +8,17 @@ apply plugin: 'application'
 
 repositories {
   mavenCentral()
-  maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
-  maven { url 'http://repository.jetbrains.com/all' }
+  maven{
+    url 'https://dl.bintray.com/wasabifx/wasabifx/'
+  }
 }
 
 dependencies {
-  compile 'org.jetbrains.kotlin:kotlin-stdlib:0.1-SNAPSHOT'
-  compile 'org.wasabi:wasabi:0.1-SNAPSHOT'
-  compile 'org.json:json:20141113'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+  implementation 'org.wasabifx:wasabi:0.3.129'
+  implementation 'org.json:json:20141113'
 }
 
-mainClassName = 'poker.PokerPackage'
+mainClassName = 'poker.PlayerServiceKt'
 
-task wrapper(type: Wrapper) {
-  gradleVersion = '2.2'
-}
-
-task stage(dependsOn: ['installApp'])
+task stage(dependsOn: ['installDist'])

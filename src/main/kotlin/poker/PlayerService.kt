@@ -1,11 +1,11 @@
 package poker
 
 import org.json.JSONObject
-import org.wasabi.app.AppConfiguration
-import org.wasabi.app.AppServer
+import org.wasabifx.wasabi.app.AppConfiguration
+import org.wasabifx.wasabi.app.AppServer
 
-fun main(args: Array<String>) {
-    var server = AppServer(AppConfiguration(getPort()))
+fun main() {
+    val server = AppServer(AppConfiguration(getPort()))
     val player = Player()
 
     server.post("/", {
