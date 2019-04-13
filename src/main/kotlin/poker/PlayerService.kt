@@ -12,7 +12,7 @@ fun main() {
         val action = request.bodyParams["action"]
         val result = when (action) {
             "bet_request" -> {
-                val gameState = request.bodyParams["game_state"]
+                val gameState = request.bodyParams["game_state"] as? String
 
                 if (gameState == null) {
                     "Missing game_state!"
