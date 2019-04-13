@@ -14,7 +14,7 @@ class PlayerLogic {
     private fun activePlayerMultiplicator(activePlayers: Int): Int {
         return when (activePlayers) {
             2 -> 60
-            3 -> 20
+            3 -> 10
             else -> 100
         }
     }
