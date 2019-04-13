@@ -13,7 +13,7 @@ class Player {
 
         val allIn = Random.nextInt(0, 100)
 
-        return if(allIn < 25) { 1000 } else { 0 }
+        return if(allIn < 40) { 1000 } else { 0 }
     }
 
     fun showdown() {
