@@ -22,4 +22,4 @@ dependencies {
 
 mainClassName = 'poker.PlayerServiceKt'
 
-task stage(dependsOn: ['installDist'])
+task stage(dependsOn: ['shadowJar'])
