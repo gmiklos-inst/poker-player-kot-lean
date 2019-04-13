@@ -1,8 +1,9 @@
 package poker
 
-import org.json.JSONObject
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.wasabifx.wasabi.app.AppConfiguration
 import org.wasabifx.wasabi.app.AppServer
+import poker.model.GameState
 
 fun main() {
     val server = AppServer(AppConfiguration(getPort()))
@@ -12,13 +13,13 @@ fun main() {
         val action = request.bodyParams["action"]
         val result = when (action) {
             "bet_request" -> {
-                val gameState = request.bodyParams["game_state"] as? String
+                val gameStateJson = request.bodyParams["game_state"] as? String
 
-                if (gameState == null) {
+                if (gameStateJson == null) {
                     "Missing game_state!"
                 } else {
-                    val json = JSONObject(gameState)
-                    player.betRequest(json).toString()
+                    val gameState = jacksonObjectMapper().readValue(gameStateJson, GameState::class.java)
+                    player.betRequest(gameState).toString()
                 }
             }
             "showdown" -> {
