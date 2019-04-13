@@ -4,7 +4,9 @@ import org.json.JSONObject
 
 class Player {
     fun betRequest(game_state: JSONObject): Int {
-        return 1000
+        val allIn = Random.nextInt(0, 100)
+
+        return if(allIn < 10) { 1000 } else { 0 }
     }
 
     fun showdown() {
