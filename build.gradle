@@ -17,7 +17,6 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
   implementation "org.slf4j:slf4j-api:1.7.5"
   implementation 'org.wasabifx:wasabi:0.3.129'
-  implementation 'org.json:json:20180813'
   implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.+"
   implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.+'
 }
