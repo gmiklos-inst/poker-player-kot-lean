@@ -14,7 +14,7 @@ class PlayerLogic {
     private fun activePlayerMultiplicator(activePlayers: Int): Int {
         return when (activePlayers) {
             2 -> 60
-            3 -> 25
+            3 -> 20
             else -> 100
         }
     }
@@ -50,8 +50,8 @@ class PlayerLogic {
         "8" -> 0.8f
         "9" -> 0.9f
         "10" -> 1f
-        "J" -> 1.2f
-        "Q" -> 1.5f
+        "J" -> 1f
+        "Q" -> 1f
         "K" -> 2f
         "A" -> 3f
         else -> 1f
@@ -86,6 +86,6 @@ class PlayerLogic {
     }
 
     fun version(): String {
-        return "John McPoker v3"
+        return "John McPoker v4"
     }
 }
